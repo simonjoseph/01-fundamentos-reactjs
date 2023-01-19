@@ -2,8 +2,16 @@ import styles from './Post.module.css';
 import { Comment } from './Comment';
 import { Avatar } from './Avatar';
 
-export function Post ({author, publishedAt}){
-  console.log(author.avatarUrl);
+export function Post ({author, publishedAt, content}){
+  const publishedDateFormatted = new Intl.DateTimeFormat('pt-Br', {
+    day: '2-digit',
+    month: 'long',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(publishedAt)
+
+  // const publishedDateRelativeToNow 
+
   return (
     <article className={styles.post}>
       <header>
@@ -15,20 +23,23 @@ export function Post ({author, publishedAt}){
           </div>
         </div>
 
-        <time title='11 de Maio ás 12:00' dateTime='2022-05-11 08:13:30'>
-          Públicado há {publishedAt.toString()}
+        <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+          {publishedDateFormatted}
         </time>
       </header>
 
       <div className={styles.content}>
-        <p>Fala galera 👋</p>
-        <p>Acabei de subir mais um projecto no meu portifolio. É um projecto que fiz no NLW Return, evento da Rocktseat 🚀</p>
+        {
+          content.map(line => {
+            if (line.type === 'paragraph'){
+              return <p>{line.content}</p>
+            }
 
-        <p>👉 {' '} <a href="">Simão.design</a></p>
-        <p>
-          <a href="">#novoprojecto </a>
-          <a href="">#nlw </a>
-          <a href="">#rocketseat</a></p>
+            if(line.type === 'link'){
+              return <p><a href={line.link} >{line.content}</a></p>
+            }
+          })
+        }
       </div>
 
       <form className={styles.commentForm}>

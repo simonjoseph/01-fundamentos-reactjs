@@ -20,10 +20,7 @@ const posts = [
     content: [
       { type: 'paragraph', content: 'Fala galera 👋' },
       {type: 'paragraph', content: 'Acabei de subir mais um projecto no meu portifolio. É um projecto que fiz no NLW Return, evento da Rocktseat 🚀',},
-      { type: 'link', content: 'Simão.design',},
-      { type: 'link', content: '#novoprojecto ',},
-      { type: 'link', content: '#nlw ',},
-      { type: 'link', content: '#rocketseat',}
+      { type: 'link', content: 'Simão.design',}
     ],
     publishedAt: new Date('2022-05-10 20:00:00'),
   },
@@ -37,10 +34,7 @@ const posts = [
     content: [
       { type: 'paragraph', content: 'Fala galera 👋' },
       {type: 'paragraph', content: 'Acabei de subir mais um projecto no meu portifolio. É um projecto que fiz no NLW Return, evento da Rocktseat 🚀',},
-      { type: 'link', content: 'Terêncio.design',},
-      { type: 'link', content: '#novoprojecto ',},
-      { type: 'link', content: '#nlw ',},
-      { type: 'link', content: '#rocketseat',}
+      { type: 'link', content: 'Terêncio.design'},
     ],
     publishedAt: new Date('2022-05-03 20:00:00'),
   }
